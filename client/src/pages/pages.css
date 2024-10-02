@@ -1,0 +1,90 @@
+ .quill .ql-container{
+  border: none;
+}
+.ql-container {
+  font-family: 'Georgia', serif;
+  font-size: 18px;
+  line-height: 1.6;
+  border: none;
+}
+
+.ql-editor {
+  padding: 20px;
+  min-height: 300px;
+  border: none;
+  background-color: #fff;
+  border-color: transparent;
+  margin-top: 20px;
+}
+
+.quill .ql-toolbar {
+  border: none;
+    margin-bottom: 10px;
+    box-shadow: none;
+    padding: 10px 0;
+  }  
+  .ql-editor p {
+    margin-bottom: 1.8em;
+  }
+  
+  .ql-editor h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+  }
+  
+  .ql-editor h2 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+  }
+   
+   .ql-editor h3 {
+    font-size: 1.75em;
+    margin-bottom: 0.5em;
+  } 
+.publish {
+  padding: 10px 18px;
+  color: white;
+  background: rgb(33, 184, 33);
+  width: max-content;
+  margin: 10px auto;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.publish:hover{
+  background: rgb(61, 212, 61);
+}
+
+
+.content-styling {
+  margin-top: 3rem;
+}
+
+.content-styling strong {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "Inter";
+  margin-bottom: 20px;
+}
+
+.content-styling p,li {
+  font-size: 20px; 
+  margin: 20px 0;
+  font-family: 'Roboto Condensed';
+}
+
+@media screen and (max-width: 600px){
+  .content-styling strong {
+    text-decoration: underline;
+    font-size: 18px;
+    text-decoration: underline;
+    font-weight: 500;
+    color: rgb(59, 81, 103);
+    margin-bottom: 20px;
+  }
+  
+  .content-styling p,li {
+    font-size: 14px; 
+  }
+  
+}
