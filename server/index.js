@@ -82,7 +82,7 @@ passport.deserializeUser(async (id, done) => {
 });
 
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: "https://blooog-c7jo.vercel.app",
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE"],
 }));
