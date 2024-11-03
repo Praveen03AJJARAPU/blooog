@@ -64,7 +64,7 @@ function LoginTemp() {
     }
   }
   const google = () => {
-    window.open("http://localhost:5000/auth/google", "_self");
+    window.open(`${import.meta.env.VITE_SERVER_URL}/auth/google`, "_self");
   };
 
   useEffect(() => {
