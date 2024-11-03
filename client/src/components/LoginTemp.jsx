@@ -37,6 +37,7 @@ function LoginTemp() {
                         setTimeout(() => {
                         }, 1000);
                       } else {
+                          console.log(res);
                           toast.error(res.data.message);
                       }
                   });
