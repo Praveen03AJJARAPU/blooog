@@ -1,3 +1,6 @@
+.cmntSection::-webkit-scrollbar {
+  display: none;
+}
 
 .comment_btn {
     padding: 5px 15px;
@@ -8,6 +11,5 @@
 .comment_btn:nth-child(2) {
     /* background: #000; */
     
-    color: white;
     border-radius: 25px;
 }

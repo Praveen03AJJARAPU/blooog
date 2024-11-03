@@ -5,7 +5,7 @@ import { IoCloseOutline } from "react-icons/io5";
 import { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {useNavigate} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import axios from 'axios';
 import { setSubTitle, setTitle } from "../../store/slices/editor";
 import { CircularProgress } from "@mui/material";
@@ -20,7 +20,7 @@ function Publish() {
     const dispatch = useDispatch();
     
     const handleImage = async(img) => {
-      console.log(img)
+      // console.log(img)
       if(img.type == 'image/jpeg' || img.type == 'image/png' || img.type == 'image/jpg') {
         setPhoto(img);
       } 
@@ -73,9 +73,9 @@ function Publish() {
 
        <CircularProgress /> 
       </div>}
-      <span className="absolute top-10 right-10 text-4xl">
+      <Link to={'/create'} className="absolute top-10 right-10 text-4xl">
         <IoCloseOutline />
-      </span>
+      </Link>
       <div className="flex flex-col gap-5">
         <p className="text-xl font-bold">Story preview</p>
         <div className="bg-slate-100 w-[300px] sm:w-[350px] h-[200px]">

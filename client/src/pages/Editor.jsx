@@ -4,7 +4,7 @@ import 'react-quill/dist/quill.snow.css';
 // import {ImageResize} from 'quill-image-resize-module-react';
 import { useDispatch, useSelector } from 'react-redux'
 import { setContent } from '../../store/slices/editor';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 
@@ -17,11 +17,6 @@ function Editor() {
     dispatch(setContent(e))
   }
 
-  const handlePublish = () => {
-    if(canPublished) {
-      nav('/publish');
-    }
-  }
 
   useEffect(() => {
     if(content.length > 50) setCanPublished(true);
@@ -51,19 +46,32 @@ function Editor() {
 
   return (
     <div>
-      <div className='flex items-center justify-between px-10 border-black border-b-[1px]'>
-        <h1 className="font-dm text-4xl px-3 py-3">Blooog</h1>
-        <p className={`font-inter px-5 p-1 ${canPublished ? 'bg-green-600' : 'bg-green-300'} text-white rounded-full`} onClick={handlePublish}>Publish</p>
+      <div className="flex items-center bg-third text-white justify-between px-10">
+        <h1 className="font-lico font-bold text-4xl px-3 py-3">Philoog</h1>
+        <Link
+          className={`font-inter px-5 p-1 ${
+            canPublished ? "bg-green-600" : "bg-green-300"
+          } text-white rounded-full`}
+          to='/publish'
+        >
+          Publish
+        </Link>
       </div>
-      <div className='pb-10' style={{ maxWidth: "900px", margin: "20px auto" }}>
-        <ReactQuill
-          value={content}
-          onChange={handleChange}
-          modules={modules}
-          formats={formats}
-          placeholder="Write your story..."
-          theme="snow"
-        />
+      <div className='w-full h-[90.7vh] bg-secondary'>
+        <div
+          className="pb-10 bg-white"
+          style={{ maxWidth: "900px", margin: "auto", padding: "20px 0" }}
+        >
+          <ReactQuill
+          style={{backgroundColor: ''}}
+            value={content}
+            onChange={handleChange}
+            modules={modules}
+            formats={formats}
+            placeholder="Write your story..."
+            theme="snow"
+          />
+        </div>
       </div>
     </div>
   );

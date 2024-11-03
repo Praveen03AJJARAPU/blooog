@@ -1,5 +1,5 @@
 import {configureStore} from '@reduxjs/toolkit'
-import {auth, blog, editor} from './slices'
+import {animation, auth, blog, editor} from './slices'
 
 
 export const store = configureStore({
@@ -7,5 +7,6 @@ export const store = configureStore({
         auth: auth, 
         editor: editor,
         blog: blog,
+        anim: animation,
     }
 })

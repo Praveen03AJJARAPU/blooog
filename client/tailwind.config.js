@@ -7,9 +7,15 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        dm: "DM Serif Text, serif",
-        inter: "Inter, serif",
-        robo: "Roboto Condensed, serif"
+        lico: "Licorice, cursive",
+        lime: "Limelight, sans-serif",
+        anto : "Antonio, sans-serif"
+      },
+      colors: {
+        primary: '#1E201E',
+        secondary: '#3C3D37',
+        third: '#697565',
+        fourth: '#ECDFCC' 
       }
     },
   },

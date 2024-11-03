@@ -70,7 +70,8 @@
 .content-styling p,li {
   font-size: 20px; 
   margin: 20px 0;
-  font-family: 'Roboto Condensed';
+  font-family: 'Inter';
+
 }
 
 @media screen and (max-width: 600px){
@@ -88,3 +89,15 @@
   }
   
 }
+.tabs {
+  padding: 10px 0px;
+  cursor: pointer;
+}
+
+.underline {
+  position: absolute;
+  bottom: -1px;
+  height: 2px;  
+  transition: left 0.3s ease, width 0.3s ease;
+}
+

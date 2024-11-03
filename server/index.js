@@ -23,6 +23,8 @@ const io = new Server(server, {
   }
 });
 
+app.set('socketio', io);
+
 app.use(session({
   secret: 'asp',
   resave: false,
@@ -46,8 +48,7 @@ passport.use(new GoogleStrategy({
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
   callbackURL: "/auth/google/callback",
   scope: ['profile', 'email']
-},
-async (accessToken, refreshToken, profile, done) => {
+},async (accessToken, refreshToken, profile, done) => {
   try {
     let user = await User.findOne({ googleId: profile.id });
     if (!user) {
@@ -56,14 +57,16 @@ async (accessToken, refreshToken, profile, done) => {
         name: profile.displayName,
         email: profile.emails ? profile.emails[0].value : null,
         profile_picture: profile.photos[0].value,
+        cover_picture: profile.photos[0].value,
       });
     }
-    // console.log(user);
     return done(null, user);
   } catch (error) {
     return done(error, false);
   }
 }));
+
+
 
 passport.serializeUser((user, done) => {
   done(null, user.id);
@@ -95,13 +98,17 @@ io.on('connection', (socket) => {
     io.emit('commentAdded', comment);
   })
 
+  socket.on('newLike', (like) => {
+    io.emit('likeAdded', like);
+  })
+
   socket.on('disconnect', () => {
     console.log('Client disconnected');
   })
 
 })
 
-
+mongoose.set('bufferTimeoutMS', 15000);
 
 app.use('/auth', authRoute);
 app.use('/blog', blogRoute);
